@@ -40,19 +40,19 @@ $small-viewport {
 .Grid.between  { justify-content: space-between; }
 .Grid.around   { justify-content: space-around; }
 
-.Cell          { @apply --cell; }
-.Cell.fill     { width: 0; min-width: 0; flex-grow: 1; }
-.Cell.one      { width: calc(100% * 1 / 12); }
-.Cell.two      { width: calc(100% * 2 / 12); }
-.Cell.three    { width: calc(100% * 3 / 12); }
-.Cell.four     { width: calc(100% * 4 / 12); }
-.Cell.five     { width: calc(100% * 5 / 12); }
-.Cell.six      { width: calc(100% * 6 / 12); }
-.Cell.seven    { width: calc(100% * 7 / 12); }
-.Cell.eight    { width: calc(100% * 8 / 12); }
-.Cell.nine     { width: calc(100% * 9 / 12); }
-.Cell.ten      { width: calc(100% * 10 / 12); }
-.Cell.eleven   { width: calc(100% * 11 / 12); }
-.Cell.twelve   { width: 100%; }
-
-
+$medium-viewport {
+  .Cell          { @apply --cell; }
+  .Cell.fill     { width: 0; min-width: 0; flex-grow: 1; }
+  .Cell.one      { width: calc(100% * 1 / 12); }
+  .Cell.two      { width: calc(100% * 2 / 12); }
+  .Cell.three    { width: calc(100% * 3 / 12); }
+  .Cell.four     { width: calc(100% * 4 / 12); }
+  .Cell.five     { width: calc(100% * 5 / 12); }
+  .Cell.six      { width: calc(100% * 6 / 12); }
+  .Cell.seven    { width: calc(100% * 7 / 12); }
+  .Cell.eight    { width: calc(100% * 8 / 12); }
+  .Cell.nine     { width: calc(100% * 9 / 12); }
+  .Cell.ten      { width: calc(100% * 10 / 12); }
+  .Cell.eleven   { width: calc(100% * 11 / 12); }
+  .Cell.twelve   { width: 100%; }
+}

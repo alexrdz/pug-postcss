@@ -1,0 +1,95 @@
+@import '_vars.css';
+/** 
+ * Define Custom Properties with --root 
+ */
+
+html {
+  font-size: responsive;
+  min-font-size: 16px;
+  max-font-size: 21px;
+  lower-font-range: 420px;
+  upper-font-range: 1280px;
+}
+:root {
+  --fontSize: 1rem;
+  --fontType: 'Open Sans';
+  --bgColor: rebeccapurple;
+  --flex-row: {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+}
+
+
+
+body {
+  @media screen and (min-width: 50em) {
+    &:after {
+      content: '50em';
+    }
+  }
+  font-size: 16px;
+  color: #f9f9f9;
+  font-family: var(--fontType);
+  font-size: var(--fontSize);
+  font-size: responsive;
+  background:  var(--bgColor);}
+
+p.at16 { font-size: 16px; }
+
+/** 
+ * custom properties with @apply 
+ */
+
+.row {
+  @apply --flex-row;
+  div {
+    width: 500px;
+  }
+}
+
+/** 
+ * Calculate h1-h4 with calc()
+ */
+
+h1 {
+  font-size: calc(var(--fontSize) * 3);
+}
+h2 {
+  font-size: calc(var(--fontSize) * 2.75);
+}
+h3 {
+  font-size: calc(var(--fontSize) * 2.25);
+}
+h4 {
+  font-size: calc(var(--fontSize) * 2);
+}
+
+/** 
+ * Custom Media Query 
+ */
+@custom-media --medium-viewport (min-width: 551px);
+
+@custom-media --small-viewport (max-width: 550px);
+
+@media (--small-viewport) {
+  /* styles for small viewport */
+  .row {
+      flex-direction: column;
+      }
+}
+
+$medium-viewport {
+  body {
+    background: green;
+  }
+}
+
+$large-viewport {
+  body {
+    background: #ddd;
+    color: #444;
+  }
+}
+

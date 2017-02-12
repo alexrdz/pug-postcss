@@ -1,0 +1,17 @@
+/*
+ *  Colors
+ */
+$red: rgba(255,0,0,1);
+
+
+
+
+/*
+ *  Media Queries
+ */
+$small: 550px;
+$small-viewport: @media (max-width: $small);
+$medium: 551px;
+$medium-viewport: @media (min-width: $medium);
+$large: 800px;
+$large-viewport: @media (min-width: $large);

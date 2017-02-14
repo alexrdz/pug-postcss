@@ -15,7 +15,11 @@ var pug         = require('gulp-pug');
 var postcss     = require('gulp-postcss');
 var cssnext     = require('postcss-cssnext');
 var atImport    = require("postcss-import");
-var simpleVars  = require('postcss-simple-vars');
+// var simpleVars  = require('postcss-simple-vars');
+var stylus      = require('gulp-stylus');
+var poststylus  = require('poststylus');
+var rucksack    = require('rucksack-css');
+var rupture     = require('rupture');
 var responsiveType = require('postcss-responsive-type');
 var autoprefixer = require('autoprefixer');
 
@@ -57,7 +61,7 @@ gulp.task('serve', function() {
     browserSync.init({
         server: "./dest"
     });
-    gulp.watch(input, ['style']);
+    gulp.watch(input, ['stylus', 'img', 'js']);
     gulp.watch('./dest/**').on('change', browserSync.reload);
 });
 gulp.task('browser-sync', function () {
@@ -76,18 +80,34 @@ gulp.task('browser-sync', function () {
 });
 
 // gulp-postcss config
-gulp.task('style', function() {
-  var processors = [
-    cssnext,
-    atImport,
-    simpleVars,
-    responsiveType
-  ]
-  return gulp.src('./src/css/**/*.css')
+// gulp.task('style', function() {
+//   var processors = [
+//     cssnext,
+//     atImport,
+//     simpleVars,
+//     responsiveType
+//   ]
+//   return gulp.src('./src/css/**/*.css')
+//     .pipe(plumber())
+//     .pipe(sourcemaps.init())
+//     .pipe(postcss(processors))
+//     .pipe(concat('styles.css'))
+//     .pipe(cssnano())
+//     .pipe(sourcemaps.write('.'))
+//     .pipe(gulp.dest('./dest/css'))
+// });
+
+gulp.task('stylus', function () {
+  gulp.src('./src/css/**/[^_]*.styl')
     .pipe(plumber())
     .pipe(sourcemaps.init())
-    .pipe(postcss(processors))
-    .pipe(concat('styles.css'))
+    .pipe(stylus({
+      use: [
+        poststylus(['rucksack-css', 'postcss-cssnext']),
+        rupture()
+      ]
+    }))
+    .pipe(concat('style.css'))
     .pipe(cssnano())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dest/css'))
@@ -97,10 +117,10 @@ gulp.task('style', function() {
 // Call Watch
 gulp.task('watch', function () {
   gulp.watch('./src/**/*.pug', ['pug']);
-  gulp.watch('./src/css/**/*.css', ['style']);
+  gulp.watch('./src/css/**/*.styl', ['stylus']);
   gulp.watch('./src/js/**/*.js', ['js']);
   gulp.watch('./src/img/**/*.{jpg,png,gif}', ['imagemin']);
 });
 
 // Default task
-gulp.task('default', ['js', 'pug', 'copy', 'style', 'imagemin', 'watch', 'browser-sync']);
+gulp.task('default', ['js', 'pug', 'copy', 'stylus', 'imagemin', 'watch', 'browser-sync']);

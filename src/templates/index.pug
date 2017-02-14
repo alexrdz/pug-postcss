@@ -6,7 +6,7 @@ html
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='description' content="meta desc")
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    link(rel="stylesheet", type="text/css", href="css/styles.css")
+    link(rel="stylesheet", type="text/css", href="css/style.css")
 
   body
 
@@ -16,22 +16,32 @@ html
     //-     .Stackednav__bar
     //-     .Stackednav__bar
 
-    .container
-      .Grid
-        .Cell.six
+    .Grid.Home
+      .Cell.six.Left-pane
+        .Left-pane__image
+          p &nbsp;
+        .Left-pane__content
           h3 cell one
-        .Cell.six
-          h3 cell two
-          p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque reprehenderit tempore fugit, similique quam facere, sed itaque labore totam recusandae id dignissimos. Perferendis assumenda, culpa nemo! Nobis sunt ducimus incidunt.
+      .Cell.six.Right-pane
+        h3 cell two
+        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque reprehenderit tempore fugit, similique quam facere, sed itaque labore totam recusandae id dignissimos. Perferendis assumenda, culpa nemo! Nobis sunt ducimus incidunt.
 
-    section.Main-content
-      h1 testing
+        .Work.ones.Grid
+          .Cell.Left.six
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam voluptatibus asperiores vitae omnis quam consequuntur blanditiis, similique reprehenderit natus qui reiciendis quas ducimus temporibus, quidem quod, porro, ut dignissimos minus!
+          .Cell.Right.six
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id soluta, dolorem ipsam unde possimus blanditiis, voluptates qui, maxime at magnam ducimus tenetur quasi. Hic error, ipsam. Minima labore, ullam obcaecati.
+        .Work.twos.Grid
+          .Cell.Left.six
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam voluptatibus asperiores vitae omnis quam consequuntur blanditiis, similique reprehenderit natus qui reiciendis quas ducimus temporibus, quidem quod, porro, ut dignissimos minus!
+          .Cell.Right.six
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id soluta, dolorem ipsam unde possimus blanditiis, voluptates qui, maxime at magnam ducimus tenetur quasi. Hic error, ipsam. Minima labore, ullam obcaecati.
+        .Work.threes.Grid
+          .Cell.Left.six
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam voluptatibus asperiores vitae omnis quam consequuntur blanditiis, similique reprehenderit natus qui reiciendis quas ducimus temporibus, quidem quod, porro, ut dignissimos minus!
+          .Cell.Right.six
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id soluta, dolorem ipsam unde possimus blanditiis, voluptates qui, maxime at magnam ducimus tenetur quasi. Hic error, ipsam. Minima labore, ullam obcaecati.
 
-
-    footer.site-footer
-
-      //- put your content here
-      .container
-        p.text-right Footer text.
+        a(href="#") next
 
     script(type="text/javascript", src="js/main.js")

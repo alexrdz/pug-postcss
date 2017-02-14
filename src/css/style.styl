@@ -1,0 +1,58 @@
+@import '../../node_modules/normalize-styl'
+@import '_vars';
+@import '_grid';
+@import '_base';
+
+body
+  background-image: url('../img/alexrdz.jpg');
+  background-attachment: fixed;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  +above(500px)
+    background-size: 50%;
+  
+  
+  
+
+.Home
+  .six
+    height: 100vh;
+
+.Left-pane
+  &__image
+    background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: .6;
+    +above(500px)
+      width: 50%;
+
+  &__content
+    color: #fff;
+    position: relative;
+    z-index: 5;
+
+.Right-pane
+  background: #eaeaea;
+
+
+
+
+
+
+
+
+.Work
+  position: fixed;
+  top: 0;
+  left: 0
+  right: 0;
+  background: red
+  .Left
+    background: blue
+  .Right
+    background: green

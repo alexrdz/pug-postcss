@@ -28,7 +28,7 @@ var output = './dest/css';
 
 // pug templates
 gulp.task('pug', function () {
-  return gulp.src('src/templates/**/*.pug')
+  return gulp.src('src/views/**/[^_]*.pug')
     .pipe(plumber())
     .pipe(pug())
     .pipe(gulp.dest('dest/'));
@@ -79,23 +79,6 @@ gulp.task('browser-sync', function () {
   });
 });
 
-// gulp-postcss config
-// gulp.task('style', function() {
-//   var processors = [
-//     cssnext,
-//     atImport,
-//     simpleVars,
-//     responsiveType
-//   ]
-//   return gulp.src('./src/css/**/*.css')
-//     .pipe(plumber())
-//     .pipe(sourcemaps.init())
-//     .pipe(postcss(processors))
-//     .pipe(concat('styles.css'))
-//     .pipe(cssnano())
-//     .pipe(sourcemaps.write('.'))
-//     .pipe(gulp.dest('./dest/css'))
-// });
 
 gulp.task('stylus', function () {
   gulp.src('./src/css/**/[^_]*.styl')

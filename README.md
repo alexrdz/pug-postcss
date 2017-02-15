@@ -1,6 +1,7 @@
-# Pug and PostCSS
+# New Portfolio Site
+### Using Pug and PostCSS
 
-a site starter for prototyping or creating simple sites with Pug templates and PostCSS aided by gulp.
+a site starter for prototyping or creating simple sites with Pug templates and stylus-PostCSS aided by gulp.
 
 includes:
 - autoprefixer
@@ -12,10 +13,9 @@ includes:
 - normalize
 - flexbox
 - cssnext
-- postcss-import
-- postcss-responsive-type
-- postcss-simple-vars (for less/stylus/sass -like variables)
-- precss
+- rucksack-css
+- rupture (stylus library for medaia queries)
+- base styles heavily influenced by yetiCSS
 
 ```npm i```
 ```gulp```

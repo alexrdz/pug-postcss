@@ -1,41 +1,11 @@
 @import '../../node_modules/normalize-styl'
-@import '_vars';
-@import '_grid';
-@import '_base';
-@import '_animations';
-
-body
-  background-image: url('../img/alexrdz.jpg');
-  background-attachment: fixed;
-  background-position: 0 center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  +above($medium)
-    background-size: 50%;
-  
-  
-  
-
-.Home
-  .six
-    height: 100vh;
-
-.Left-pane
-  &__image
-    background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    opacity: .6;
-    +above($medium)
-      width: 50%;
-
-  &__content
-    color: #fff;
-    position: relative;
-    z-index: 5;
+@import '_vars'
+@import '_grid'
+@import '_base'
+@import '_helpers'
+@import '_animations'
 
 
+// load components
+@import './components/*'
 

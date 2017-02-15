@@ -1,0 +1,61 @@
+body
+  background-image: url('../img/alexrdz.jpg')
+  background-attachment: fixed
+  background-position: center -15em
+  background-repeat: no-repeat
+  background-size: cover
+  +above($medium)
+    background-position: 0 center
+    background-size: 50%
+  
+  
+  
+
+.Home
+  .six
+    height: 100vh
+
+.Left-pane
+  &__image
+    background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%)
+    position: fixed
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    opacity: .6
+    +above($medium)
+      width: 50%
+
+  &__content
+    color: #fff
+    +above($medium)
+      padding: 6em
+    position: relative
+    top: 75%
+    transform: translateY(-75%)
+    z-index: 5
+
+.Right-pane
+  background-color: $light
+  +above($medium)
+    padding: 2em 6em
+  position: relative
+  z-index: 6
+  &__content
+    position: relative
+
+.Brand
+  display: block
+  margin: 0 auto 10vh
+  height: auto
+  width: 65px
+.Main-title
+  &:after
+    background-color: rgba(black, 0.2)
+    content: ''
+    display: block
+    height: .5px
+    margin: 20px auto
+    width: 15%
+    

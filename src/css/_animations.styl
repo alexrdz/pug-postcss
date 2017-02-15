@@ -1,0 +1,41 @@
+.animate
+  animation-duration: .8s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(.25,.42,.12,.94);
+.delay
+  animation-delay: .8s;
+.slow
+  animation-duration: .6s;
+
+@keyframes slideInLeft
+  0%
+    opacity: 0;
+    transform: translate3d(20%, 0, 0);
+  100%
+    opacity: 1
+    transform: none;
+
+.slideInLeft
+  animation-name: slideInLeft;
+
+
+@keyframes slideUp
+  0%
+    opacity: 0;
+    transform: translate3d(0,30%,0);
+  100%
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+.slideUp
+  animation-name: slideUp;
+
+
+@keyframes fadeInUp
+  0%
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+  100%
+    opacity: 1;
+    transform: none;
+  .fadeInUp
+    animation-name: fadeInUp;

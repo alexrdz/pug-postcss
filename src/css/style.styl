@@ -2,14 +2,15 @@
 @import '_vars';
 @import '_grid';
 @import '_base';
+@import '_animations';
 
 body
   background-image: url('../img/alexrdz.jpg');
   background-attachment: fixed;
-  background-position: 0 0;
+  background-position: 0 center;
   background-repeat: no-repeat;
   background-size: cover;
-  +above(500px)
+  +above($medium)
     background-size: 50%;
   
   
@@ -28,7 +29,7 @@ body
     top: 0;
     bottom: 0;
     opacity: .6;
-    +above(500px)
+    +above($medium)
       width: 50%;
 
   &__content
@@ -36,23 +37,5 @@ body
     position: relative;
     z-index: 5;
 
-.Right-pane
-  background: #eaeaea;
 
 
-
-
-
-
-
-
-.Work
-  position: fixed;
-  top: 0;
-  left: 0
-  right: 0;
-  background: red
-  .Left
-    background: blue
-  .Right
-    background: green

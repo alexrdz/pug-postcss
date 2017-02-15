@@ -5,10 +5,7 @@ grid()
 cell()
   box-sizing: border-box;
   flex-shrink: 0;
-  padding: 0.5rem;
   position: relative;
-  +above(500px)
-    padding: 1rem;
   // &:nth-child(1)
   //   padding-left: 0;
   // &:last-child
@@ -17,14 +14,14 @@ cell()
 .container
   margin: 0 auto;
   width: 95%;
-  +above(500px)
+  +above($medium)
     max-width: 1200px;
 
 
 
 .Grid
   grid()
-  +below(500px)
+  +below($medium)
     flex-direction: column;
 
 .Grid
@@ -49,7 +46,9 @@ cell()
   &.around
     justify-content: space-around;
 
-+above(500px)
+.Cell
+  padding: 1em;
++above($medium)
   .Cell
     cell()
   .fill

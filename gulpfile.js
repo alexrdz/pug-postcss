@@ -1,4 +1,5 @@
 var gulp        = require('gulp');
+var ghPages     = require('gulp-gh-pages');
 var browserSync = require('browser-sync').create();
 var gutil       = require('gulp-util');
 var cssnano     = require('gulp-cssnano');
@@ -24,18 +25,18 @@ var responsiveType = require('postcss-responsive-type');
 var autoprefixer = require('autoprefixer');
 
 var input = './src/css/*.css';
-var output = './dest/css';
+var output = './dist/css';
 
 // pug templates
 gulp.task('pug', function () {
   return gulp.src('src/views/**/[^_]*.pug')
     .pipe(plumber())
     .pipe(pug())
-    .pipe(gulp.dest('dest/'));
+    .pipe(gulp.dest('dist/'));
 });
 gulp.task('copy', function() {
   return gulp.src(['src/*.html', 'src/*.txt'])
-    .pipe(gulp.dest('dest/'))
+    .pipe(gulp.dest('dist/'))
 });
 
 
@@ -45,7 +46,7 @@ gulp.task('js', function () {
     .pipe(plumber())
     .pipe(concat('main.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('dest/js'));
+    .pipe(gulp.dest('dist/js'));
 });
 
 // Imagemin
@@ -53,7 +54,7 @@ gulp.task('imagemin', function () {
   return gulp.src('src/img/**/*')
     .pipe(plumber())
     .pipe(cache(imagemin({optimizationLevel: 3, progressive: true, interlaced: true})))
-    .pipe(gulp.dest('dest/img'));
+    .pipe(gulp.dest('dist/img'));
 });
 
 // browserSync server
@@ -62,19 +63,19 @@ gulp.task('serve', function() {
         server: "./dest"
     });
     gulp.watch(input, ['stylus', 'img', 'js']);
-    gulp.watch('./dest/**').on('change', browserSync.reload);
+    gulp.watch('./dist/**').on('change', browserSync.reload);
 });
 gulp.task('browser-sync', function () {
   var files = [
-    'dest/**/*.html',
-    'dest/css/**/*.css',
-    'dest/img/**/*',
-    'dest/js/**/*.js'
+    'dist/**/*.html',
+    'dist/css/**/*.css',
+    'dist/img/**/*',
+    'dist/js/**/*.js'
   ];
 
   browserSync.init(files, {
     server: {
-      baseDir: './dest/',
+      baseDir: './dist/',
     },
   });
 });
@@ -93,7 +94,7 @@ gulp.task('stylus', function () {
     .pipe(concat('style.css'))
     .pipe(cssnano())
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./dest/css'))
+    .pipe(gulp.dest('./dist/css'))
 });
 
 
@@ -103,6 +104,12 @@ gulp.task('watch', function () {
   gulp.watch('./src/css/**/*.styl', ['stylus']);
   gulp.watch('./src/js/**/*.js', ['js']);
   gulp.watch('./src/img/**/*.{jpg,png,gif}', ['imagemin']);
+});
+
+// Deploy to gh pages
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
 });
 
 // Default task

@@ -4,6 +4,8 @@
   
 .delay
   animation-delay: .4s
+.delay-2
+  animation-delay: .8s
 .slow
   animation-duration: .6s
 
@@ -64,3 +66,14 @@
     transform: none
 .fadeInDown
   animation-name: fadeInDown
+
+
+
+@keyframes growWidth
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+    transform: scaleX(3)
+.growWidth
+  animation-name: growWidth

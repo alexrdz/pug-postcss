@@ -89,7 +89,7 @@ function load (fileName, domNode) {
         load(hash, target)
       }
 		})
-    .otherwise('/')
+    .otherwise('/pug-postcss')
 		.go();
 	};
 

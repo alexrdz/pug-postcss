@@ -24,8 +24,8 @@ var rupture     = require('rupture');
 var responsiveType = require('postcss-responsive-type');
 var autoprefixer = require('autoprefixer');
 
-var input = './src/css/*.css';
-var output = './dist/css';
+// var input = './src/css/*.css';
+// var output = './dist/css';
 
 // pug templates
 gulp.task('pug', function () {

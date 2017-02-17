@@ -45,7 +45,7 @@ function load (fileName, domNode) {
       i.addEventListener('click', function () {
         hasClass(i, 'scaleImage') ? removeClass(i, 'scaleImage') : addClass(i, 'scaleImage')
       })
-      
+      Satnav.resolve();
     }
     else {
         console.log('Request failed.  Returned status of ' + xhr.status)
@@ -60,43 +60,72 @@ function load (fileName, domNode) {
 
 		Satnav({
 			html5: true,
-			matchAll: true
+			matchAll: true,
+      force: true
 		})
     .navigate({
-      path : '/?{filter}/?{page}',               
+      path : '/?{page}/?{project}',               
       directions : function(params) {
-        // console.log('directions received')
+        console.log('directions received')
         // console.log('params: ', params)
+        removeClass(nav, 'is-home')
+        addClass(secondNav, 'moveInUp')
+        addClass(home, 'moveToLeft')
+        addClass(work, 'moveToLeft')
       }
     })
     .change(function(hash) {
-      if (hash === '') {
-        addClass(nav, 'is-home')
-
-        if (hasClass(home, 'moveToLeft')) {
-          removeClass(home, 'moveToLeft')
-          addClass(home, 'moveFromLeft')
-          
-          addClass(work, 'moveFromLeft')
-          removeClass(work, 'moveToLeft')
-
-          removeClass(secondNav, 'moveInUp')
-          
-          setTimeout(function () {
-            target.innerHTML = ''
-          }, 500)
-
+      console.log(hash)
+        if (hash === '') {
+          addClass(nav, 'is-home')
+          if (hasClass(home, 'moveToLeft')) {
+            removeClass(home, 'moveToLeft')
+            addClass(home, 'moveFromLeft')
+            addClass(work, 'moveFromLeft')
+            removeClass(work, 'moveToLeft')
+            removeClass(secondNav, 'moveInUp')
+            setTimeout(function () {
+              target.innerHTML = ''
+            }, 500)
+          }
+        } else {
+          //   Satnav.resolve(); <-- set at load() function
+          removeClass(home, 'moveFromLeft')
+          removeClass(work, 'moveFromLeft')
+          load(hash, target)
         }
+
+      
+      return this.defer;
+
+
+      // if (hash === '') {
+      //   addClass(nav, 'is-home')
+
+      //   if (hasClass(home, 'moveToLeft')) {
+      //     removeClass(home, 'moveToLeft')
+      //     addClass(home, 'moveFromLeft')
+          
+      //     addClass(work, 'moveFromLeft')
+      //     removeClass(work, 'moveToLeft')
+
+      //     removeClass(secondNav, 'moveInUp')
+          
+      //     setTimeout(function () {
+      //       target.innerHTML = ''
+      //     }, 500)
+
+      //   }
         
-      } else {
-        removeClass(nav, 'is-home')
-        addClass(secondNav, 'moveInUp')
-        removeClass(home, 'moveFromLeft')
-        addClass(home, 'moveToLeft')
-        removeClass(work, 'moveFromLeft')
-        addClass(work, 'moveToLeft')
-        load(hash, target)
-      }
+      // } else {
+      //   removeClass(nav, 'is-home')
+      //   addClass(secondNav, 'moveInUp')
+      //   removeClass(home, 'moveFromLeft')
+      //   addClass(home, 'moveToLeft')
+      //   removeClass(work, 'moveFromLeft')
+      //   addClass(work, 'moveToLeft')
+      //   load(hash, target)
+      // }
 		})
     .otherwise('/')
 		.go();

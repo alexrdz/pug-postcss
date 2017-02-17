@@ -106,11 +106,14 @@ gulp.task('watch', function () {
   gulp.watch('./src/img/**/*.{jpg,png,gif}', ['imagemin']);
 });
 
-// Deploy to gh pages
+// Deploy to gh pages for testing
 gulp.task('deploy', function() {
   return gulp.src('./dist/**/*')
     .pipe(ghPages());
 });
+
+// Build task
+gulp.task('build', ['js', 'pug', 'copy', 'stylus', 'imagemin']);
 
 // Default task
 gulp.task('default', ['js', 'pug', 'copy', 'stylus', 'imagemin', 'watch', 'browser-sync']);

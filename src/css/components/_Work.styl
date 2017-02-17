@@ -6,6 +6,7 @@
   z-index: 10
 
 .Work-item
+  // background-color: darken($lightest, 85%)
   left: 100%
   position: relative
   .Cell
@@ -20,7 +21,7 @@
       display: none
   
   .Left-pane
-    background-color: $light
+    background-color: $lightest
     
     &__content
       +above($medium)
@@ -29,7 +30,7 @@
         transform: none
 
   .Right-pane
-    background-color: $lightest
+    // background-color: $lightest
     // box-shadow: 2px 0px 41px rgba(0,0,0,.2)
     padding: 0
     &__content
@@ -58,3 +59,12 @@
     transform: scale(2)
   &:hover
     cursor: zoom-in
+
+
+
+.Project
+  background-color: $lightest
+  position: absolute
+  top: 0  
+  width: 100%
+  z-index: 10

@@ -21,13 +21,14 @@
 
 .slideInLeft
   animation-name: slideInLeft
-  animation-timing-function: cubic-bezier(.25,.82,.06,1.1)
+  animation-timing-function: ease-in-out
+  // animation-timing-function: cubic-bezier(.25,.82,.06,1.1)
   // animation-timing-function: cubic-bezier(.23,1,.01,2)
 
 @keyframes slideOutLeft
   0%
     opacity: 0
-    transform: translate3d(100%, 0, 0)
+    transform: translate3d(-100%, 0, 0)
   100%
     opacity: 1
     transform: none

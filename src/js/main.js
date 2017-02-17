@@ -42,9 +42,10 @@ function load (fileName, domNode) {
     if (xhr.status === 200) {
       domNode.innerHTML=xhr.responseText
       var i = $('.Portfolio__image')
-      i.addEventListener('click', function () {
-        hasClass(i, 'scaleImage') ? removeClass(i, 'scaleImage') : addClass(i, 'scaleImage')
-      })
+      if (i)
+        i.addEventListener('click', function () {
+          hasClass(i, 'scaleImage') ? removeClass(i, 'scaleImage') : addClass(i, 'scaleImage')
+        })
       Satnav.resolve();
     }
     else {
@@ -66,8 +67,6 @@ function load (fileName, domNode) {
     .navigate({
       path : '/?{page}/?{project}',               
       directions : function(params) {
-        console.log('directions received')
-        // console.log('params: ', params)
         removeClass(nav, 'is-home')
         addClass(secondNav, 'moveInUp')
         addClass(home, 'moveToLeft')
@@ -89,6 +88,9 @@ function load (fileName, domNode) {
             }, 500)
           }
         } else {
+          if (hash.startsWith('work/')) {
+            // loader goes here
+          }
           //   Satnav.resolve(); <-- set at load() function
           removeClass(home, 'moveFromLeft')
           removeClass(work, 'moveFromLeft')

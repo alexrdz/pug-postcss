@@ -39,7 +39,7 @@
 
 .Project__title
   &:after
-    background-color: $brown
+    background-color: rgba($brown, .3)
     content: ''
     display: block
     height: 1px
@@ -49,3 +49,11 @@
 .Project__role
   font-weight: bold
   // font-family: 'Varela Round', sans-serif
+
+
+.Portfolio__image
+  transition: all .6s ease-in-out
+  &.scaleImage
+    transform: scale(2)
+  &:hover
+    cursor: zoom-in

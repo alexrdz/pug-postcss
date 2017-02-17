@@ -1,4 +1,7 @@
 .Navigation
+  background-color: $lightest
+  +above($medium)
+      background-color: transparent
   flex-direction: row
   position: fixed
   top: 0
@@ -15,10 +18,11 @@
       transition: all .3s ease-in-out
       width: 0
     &:hover
-      color: #4C5760
+      color: $link-hover
       &:after
         width: 30px
   &.is-home
+    background-color: transparent
     a
       color: #fff
   .Grid
@@ -30,3 +34,23 @@
   .six
     +below($medium)
       width: 100%
+
+.Navigation__secondary
+  +above($medium)
+    background-color: transparent
+    bottom: -20%
+    margin-top: 0
+    position: fixed
+  background-color: $light
+  left: 0
+  
+  position: relative
+  right: 0
+  transition: all .6s ease-in-out
+  z-index: 100
+  &.moveInUp
+    bottom: 0%
+    margin-top: 10em
+  a
+    font-size: .8em
+    margin: 0 15px

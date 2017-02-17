@@ -13,6 +13,11 @@ var home = $('.Home')
 var target = $('.Work')
 var work = $('.Work')
 var nav = $('.Navigation')
+var secondNav = $('.Navigation__secondary')
+var sa = $('.Navigation__secondary a')
+sa.addEventListener('click', function () {
+  window.scrollTo(0,0)
+})
 
 
 function hasClass(el, className) {
@@ -36,12 +41,17 @@ function load (fileName, domNode) {
   xhr.onload = function() {
     if (xhr.status === 200) {
       domNode.innerHTML=xhr.responseText
+      var i = $('.Portfolio__image')
+      i.addEventListener('click', function () {
+        hasClass(i, 'scaleImage') ? removeClass(i, 'scaleImage') : addClass(i, 'scaleImage')
+      })
+      
     }
     else {
-        alert('Request failed.  Returned status of ' + xhr.status);
+        console.log('Request failed.  Returned status of ' + xhr.status)
     }
-  };
-  xhr.send();
+  }
+  xhr.send()
 }
 
 
@@ -69,6 +79,8 @@ function load (fileName, domNode) {
           
           addClass(work, 'moveFromLeft')
           removeClass(work, 'moveToLeft')
+
+          removeClass(secondNav, 'moveInUp')
           
           setTimeout(function () {
             target.innerHTML = ''
@@ -78,7 +90,7 @@ function load (fileName, domNode) {
         
       } else {
         removeClass(nav, 'is-home')
-        // console.log('hash: ', hash);
+        addClass(secondNav, 'moveInUp')
         removeClass(home, 'moveFromLeft')
         addClass(home, 'moveToLeft')
         removeClass(work, 'moveFromLeft')

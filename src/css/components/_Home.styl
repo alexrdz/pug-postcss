@@ -10,44 +10,51 @@ body
   
   
 .Home
-  transition: all .4s
+  +above($medium)
+    overflow: hidden
 
-.Home > .Cell
-    height: 100vh
-
-.Left-pane
-  background-image: url('../img/alexrdz.jpg')
-  background-attachment: fixed
-  background-position: left center
-  background-repeat: no-repeat
-  // background-size: cover
-  
-  &__image
-    background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%)
-    position: fixed
-    left: 0
-    right: 0
-    top: 0
-    bottom: 0
-    opacity: .6
+.Home 
+  &> .Cell
     +above($medium)
-      width: 50%
+      height: 100vh
 
-  &__content
-    color: #fff
-    +above($medium)
-      padding: 6em
-    position: relative
-    top: 75%
-    transform: translateY(-75%)
-    z-index: 5
+  .Left-pane
+    background-image: url('../img/alexrdz.jpg')
+    background-attachment: fixed
+    background-position: left center
+    background-repeat: no-repeat
+    padding-top: 35vh
+    +below($medium)
+      background-size: cover
+    
+    &__image
+      background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%)
+      position: fixed
+      left: 0
+      right: 0
+      top: 0
+      bottom: 0
+      opacity: .6
+      +above($medium)
+        width: 50%
+
+    &__content
+      color: #fff
+      position: relative
+      z-index: 5
+      +above($medium)
+        padding: 6em
+        top: 75%
+        transform: translateY(-75%)
+      
 
 .Right-pane
   background-color: $light
-  +above($medium)
-    padding: 2em 6em
+  padding-bottom: 15vh
   position: relative
   z-index: 6
+  +above($medium)
+    padding: 2em 6em
   &__content
     position: relative
 

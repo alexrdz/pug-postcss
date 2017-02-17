@@ -1,4 +1,3 @@
-'use strict'
 
 (function() {
 
@@ -13,7 +12,7 @@ window.$ = function (selector) {
 var home = $('.Home')
 var target = $('.Work')
 var work = $('.Work')
-var left = $('.Left-pane__content')
+var nav = $('.Navigation')
 
 
 function hasClass(el, className) {
@@ -55,18 +54,15 @@ function load (fileName, domNode) {
 		})
     .navigate({
       path : '/?{filter}/?{page}',               
-      directions : function(params) {            // Function called when path is resolved
-        console.log('directions received');    
-        // console.log('params: ', params);
-
-        // if (params.hash === '') {
-        //   home.classList.add('moveToRight')  
-        // }
+      directions : function(params) {
+        // console.log('directions received')
+        // console.log('params: ', params)
       }
     })
     .change(function(hash) {
       if (hash === '') {
-        // console.log('is empty')
+        addClass(nav, 'is-home')
+
         if (hasClass(home, 'moveToLeft')) {
           removeClass(home, 'moveToLeft')
           addClass(home, 'moveFromLeft')
@@ -81,6 +77,7 @@ function load (fileName, domNode) {
         }
         
       } else {
+        removeClass(nav, 'is-home')
         // console.log('hash: ', hash);
         removeClass(home, 'moveFromLeft')
         addClass(home, 'moveToLeft')
@@ -89,7 +86,7 @@ function load (fileName, domNode) {
         load(hash, target)
       }
 		})
-    .otherwise('/pug-postcss')
+    .otherwise('/')
 		.go();
 	};
 

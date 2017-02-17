@@ -119,7 +119,7 @@
     transform: translateX(-100%)
 
 .moveFromLeft
-	animation: moveFromLeft .6s ease both
+	animation: moveFromLeft .6s ease-in-out both
 
 
 @keyframes moveFromRight
@@ -127,7 +127,22 @@
     transform: translateX(100%)
 
 .moveFromRight
-	animation: moveFromRight .6s ease both
+	animation: moveFromRight .6s ease-in-out both
+
+
+@keyframes moveToTop
+  to
+    transform: translateY(0%)
+
+.moveToTop
+  animation: moveToTop .6s ease-in-out both
+
+
+@keyframes scaleImage
+  to
+    transform: scale(2)
+.scaleImage
+  animation: scaleImage .6s ease-in-out both
 
 /*
 @keyframes moveToLeft {

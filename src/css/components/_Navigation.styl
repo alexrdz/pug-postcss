@@ -1,5 +1,10 @@
 .Navigation
   flex-direction: row
+  position: fixed
+  top: 0
+  right: 0
+  left: 0
+  z-index: 100
   a
     &:after
       background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%)
@@ -13,6 +18,15 @@
       color: #4C5760
       &:after
         width: 30px
-
+  &.is-home
+    a
+      color: #fff
+  .Grid
+    flex-direction: row
+    +below($medium)
+      .Cell
+        padding: .5em
   
-  
+  .six
+    +below($medium)
+      width: 100%

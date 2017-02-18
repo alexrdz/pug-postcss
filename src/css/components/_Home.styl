@@ -1,17 +1,8 @@
-body
-  // background-image: url('../img/alexrdz.jpg')
-  // background-attachment: fixed
-  // background-position: center -15em
-  // background-repeat: no-repeat
-  // background-size: cover
-  // +above($medium)
-    // background-position: 0 center
-    // background-size: 50%
-  
-  
 .Home
   +above($medium)
     overflow: hidden
+  &.moveToLeft
+    height: 0%
 
 .Home 
   &> .Cell
@@ -49,7 +40,7 @@ body
       
 
 .Right-pane
-  background-color: $light
+  background-color: $lightest
   padding-bottom: 15vh
   position: relative
   z-index: 6

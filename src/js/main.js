@@ -6,6 +6,10 @@
 window.$ = function (selector) {
   return document.querySelector(selector)
 }
+//- multiple selectors
+window.$$ = function (tagElement) {
+  return document.querySelectorAll(tagElement)
+}
 
 
 //- cache DOM
@@ -14,10 +18,17 @@ var target = $('.Work')
 var work = $('.Work')
 var nav = $('.Navigation')
 var secondNav = $('.Navigation__secondary')
-var sa = $('.Navigation__secondary a')
-sa.addEventListener('click', function () {
-  window.scrollTo(0,0)
+var secondNavLinks = $$('.Navigation__secondary a')
+secondNavLinks.forEach(function (link) {
+  link.addEventListener('click', function () {
+    window.scrollTo(0,0)
+  })
 })
+// if(secondNavLink) {
+//   secondNavLink.addEventListener('click', function () {
+//     window.scrollTo(0,0)
+//   })
+// }
 
 
 function hasClass(el, className) {

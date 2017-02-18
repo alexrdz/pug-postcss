@@ -5,8 +5,10 @@
   width: 100%
   z-index: 10
 
+.Work-text
+  padding-top: 10vh
 .Work-item
-  // background-color: darken($lightest, 85%)
+  background-color: $light
   left: 100%
   position: relative
   .Cell
@@ -16,27 +18,25 @@
     +above($medium)
       height: 100vh
       overflow-y: auto
-      -webkit-overflow-scrolling: touch
+    -webkit-overflow-scrolling: touch
     &::-webkit-scrollbar
       display: none
   
   .Left-pane
     background-color: $lightest
-    
     &__content
       +above($medium)
-        padding: 6em
+        padding: 3em 6em
         top: 0
         transform: none
 
   .Right-pane
-    // background-color: $lightest
+    background-color: $light
     // box-shadow: 2px 0px 41px rgba(0,0,0,.2)
-    padding: 0
     &__content
-      padding: 20vh 3em 3em
+      padding: 10vh 1em 3em
       +above($medium)
-        padding: 6em
+        padding: 1em 0 6em
 
 
 .Project__title
@@ -59,12 +59,3 @@
     transform: scale(2)
   &:hover
     cursor: zoom-in
-
-
-
-.Project
-  background-color: $lightest
-  position: absolute
-  top: 0  
-  width: 100%
-  z-index: 10

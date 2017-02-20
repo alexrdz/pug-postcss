@@ -85,7 +85,6 @@ function load (fileName, domNode) {
       }
     })
     .change(function(hash) {
-      console.log(hash)
         if (hash === '') {
           addClass(nav, 'is-home')
           if (hasClass(home, 'moveToLeft')) {

@@ -21,10 +21,22 @@
       color: $link-hover
       &:after
         width: 30px
+
+  .Brand--nav
+    left: 5px
+    opacity: 1
+    position: fixed
+    top: 0
+    transition: all .8s
+    width: 40px
+
   &.is-home
     background-color: transparent
     a
       color: #fff
+    .Brand--nav
+      opacity: 0
+      transform: scale(.25)
   .Grid
     flex-direction: row
     +below($medium)
@@ -34,6 +46,8 @@
   .six
     +below($medium)
       width: 100%
+
+
 
 .Navigation__secondary
   +above($medium)

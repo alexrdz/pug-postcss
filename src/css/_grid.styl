@@ -7,10 +7,6 @@ cell()
   box-sizing: border-box
   flex-shrink: 0
   position: relative
-  // &:nth-child(1)
-  //   padding-left: 0
-  // &:last-child
-  //   padding-right: 0
 
 .container
   margin: 0 auto
@@ -24,6 +20,12 @@ cell()
   grid()
   +below($medium)
     flex-direction: column
+&.Grid__column
+  flex-direction: column
+&.Grid__row
+  +below($medium)
+    flex-direction: row
+  
 
 .Grid
   &.top
